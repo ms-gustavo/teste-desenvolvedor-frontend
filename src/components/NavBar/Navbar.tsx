@@ -1,4 +1,3 @@
-// src/components/NavBar/NavBar.tsx
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 
