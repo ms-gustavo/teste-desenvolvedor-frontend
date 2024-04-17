@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { fetchAllData, fetchData, fetchMedicineById } from "../../api/api";
 import Pagination from "../Pagination/Pagination";
 import MedicineModal from "../MedicineModal/MedicineModal";
@@ -55,7 +56,9 @@ const MedicineList: React.FC<MedicineListProps> = ({
         setTotalPages(data.pages);
         setResults(sortedData);
       } catch (error) {
-        console.error("Failed to fetch data:", error);
+        toast.error("Ocorreu um erro para resgatar os dados, tente novamente", {
+          position: "top-right",
+        });
       }
       setLoading(false);
     };
@@ -88,7 +91,12 @@ const MedicineList: React.FC<MedicineListProps> = ({
       setSelectedMedicine(response);
       setModalOpen(true);
     } catch (error) {
-      console.error("Failed to fetch medicine details:", error);
+      toast.error(
+        "Ocorreu um erro para resgatar os dados do remédio, tente novamente",
+        {
+          position: "top-right",
+        }
+      );
     }
   };
 
