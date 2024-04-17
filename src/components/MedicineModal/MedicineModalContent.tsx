@@ -15,10 +15,7 @@ const MedicineModalContent: React.FC<MedicineModalContentProps> = ({
   return (
     <div className="text-center md:text-lg p-2 m-3">
       <h1 className="font-bold border-b-2">Remédio: {medicine.name}</h1>
-      <p className="border-b-2">
-        Empresa:
-        <span className="italic"> {medicine.company}</span>
-      </p>
+      <p className="border-b-2">Empresa: {medicine.company}</p>
       <h4>Ativo principal:</h4>
       <ul className="border-b-2">
         {medicine.active_principles.map((ap) => (
