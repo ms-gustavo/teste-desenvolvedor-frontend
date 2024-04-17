@@ -27,8 +27,11 @@
     </ul>
         <h2>Construído com</h2>
     <ul>
-        <li>React - A biblioteca usada para construir a interface</li>
-        <li>Vite - O ambiente de desenvolvimento e empacotador de módulos</li>
-        <li>Axios - Usado para realizar requisições HTTP</li>
-        <li>TailwindCSS - Framework CSS para estilização</li>
+    <li>React - A biblioteca usada para construir a interface</li>
+    <li>Vite - O ambiente de desenvolvimento e empacotador de módulos</li>
+    <li>Axios - Usado para realizar requisições HTTP</li>
+    <li>TailwindCSS - Framework CSS para estilização</li>
+    <li>React Hot Toast - Biblioteca para criação de notificações</li>
+    <li>React Icons - Usado para adicionar ícones facilmente em projetos React</li>
+    <li>Jest - Framework de teste para JavaScript</li>
     </ul>
