@@ -2,6 +2,16 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:3000/data";
 
+export const fetchAllData = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching all data:", error);
+    return [];
+  }
+};
+
 export const fetchData = async (page: number = 1) => {
   try {
     const response = await axios.get(`${BASE_URL}?_page=${page}`);
