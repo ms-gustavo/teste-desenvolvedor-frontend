@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchAllData, fetchData } from "../../api/api";
+import { fetchAllData, fetchData, fetchMedicineById } from "../../api/api";
 import Pagination from "../Pagination/Pagination";
+import MedicineModal from "../MedicineModal/MedicineModal";
 import { sortDataByPublishedDate } from "../../utils/useSortedData";
+import MedicineItem from "../MedicineItem/MedicineItem";
+import MedicineModalContent from "../MedicineModal/MedicineModalContent";
 
 interface MedicineListProps {
   searchTerm: string;
@@ -36,6 +39,10 @@ const MedicineList: React.FC<MedicineListProps> = ({
   const [results, setResults] = useState<Medicine[]>([]);
   const [filteredResults, setFilteredResults] = useState<Medicine[]>([]);
   const [loading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMedicine, setSelectedMedicine] = useState<Medicine | null>(
+    null
+  );
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(Number);
 
@@ -75,25 +82,49 @@ const MedicineList: React.FC<MedicineListProps> = ({
     }
   }, [searchTerm, searchType]);
 
+  const handleMedicineClick = async (id: string) => {
+    try {
+      const response = await fetchMedicineById(id);
+      setSelectedMedicine(response);
+      setModalOpen(true);
+    } catch (error) {
+      console.error("Failed to fetch medicine details:", error);
+    }
+  };
+
+  const translateDocType = (docType: string) => {
+    const types: Record<string, string> = {
+      PROFESSIONAL: "Profissional",
+      PATIENT: "Paciente",
+    };
+    return types[docType] || docType;
+  };
+
   const displayData = searchTerm ? filteredResults : results;
 
   return (
-    <div className="h-full">
+    <div className="h-min-screen">
       {loading ? (
         <p>Carregando...</p>
       ) : displayData.length > 0 ? (
         <ul>
-          {displayData.map((result) => {
-            return (
-              <li
-                className="text-center bg-slate-200 p-5 border border-slate-950"
-                key={result.id}
-              >
-                <span className="font-bold">{result.name}</span> -{" "}
-                <span className="italic">{result.company}</span>
-              </li>
-            );
-          })}
+          {displayData.map((medicine) => (
+            <MedicineItem
+              key={medicine.id}
+              medicine={medicine}
+              onClick={handleMedicineClick}
+            />
+          ))}
+          <MedicineModal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+            {selectedMedicine ? (
+              <MedicineModalContent
+                medicine={selectedMedicine}
+                translateDocType={translateDocType}
+              />
+            ) : (
+              <p className="text-center justify-center">Carregando...</p>
+            )}
+          </MedicineModal>
           {displayData == results && (
             <div>
               <Pagination
