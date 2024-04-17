@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./components/NavBar/Navbar";
+import MedicineList from "./components/MedicineList/MedicineList";
 
 const App: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchType, setSearchType] = useState<"name" | "company">("name");
+
   return (
-    <div className="bg-red-600">
-      <NavBar />
+    <div>
+      <NavBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        searchType={searchType}
+        setSearchType={setSearchType}
+      />
+      <MedicineList searchTerm={searchTerm} searchType={searchType} />
     </div>
   );
 };
