@@ -12,7 +12,6 @@ const MedicineModalContent: React.FC<MedicineModalContentProps> = ({
   medicine,
   translateDocType,
 }) => {
-  console.log("medicine", medicine);
   return (
     <div className="text-center md:text-lg p-2 m-3">
       <h1 className="font-bold border-b-2">Remédio: {medicine.name}</h1>
