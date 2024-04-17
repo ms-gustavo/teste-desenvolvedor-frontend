@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
-  onTypeChange: (type: string) => void;
+  onTypeChange: (type: "name" | "company") => void;
   searchType: string;
 }
 
@@ -30,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       </div>
       <select
         value={searchType}
-        onChange={(e) => onTypeChange(e.target.value)}
+        onChange={(e) => onTypeChange(e.target.value as "name" | "company")}
         className="rounded border border-gray-300 bg-white py-2 px-3 text-gray-700"
       >
         <option value="name">Remédio</option>

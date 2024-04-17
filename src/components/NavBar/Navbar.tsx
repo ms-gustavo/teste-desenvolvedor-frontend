@@ -1,11 +1,20 @@
 // src/components/NavBar/NavBar.tsx
-import React, { useState } from "react";
+import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 
-const NavBar: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchType, setSearchType] = useState("name");
+interface NavBarProps {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  searchType: "name" | "company";
+  setSearchType: (type: "name" | "company") => void;
+}
 
+const NavBar: React.FC<NavBarProps> = ({
+  searchTerm,
+  setSearchTerm,
+  searchType,
+  setSearchType,
+}) => {
   return (
     <nav className="bg-gray-800 text-black p-4">
       <div className="max-w-7xl mx-auto px-4">
