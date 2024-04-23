@@ -1,5 +1,5 @@
 import * as utils from "../support/utils";
-
+//
 describe("Visit the site and load initial informations", () => {
   it("should open the site", () => {
     cy.visit("/");
