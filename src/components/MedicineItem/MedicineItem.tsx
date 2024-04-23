@@ -9,6 +9,7 @@ interface MedicineItemProps {
 const MedicineItem: React.FC<MedicineItemProps> = ({ medicine, onClick }) => {
   return (
     <li
+      id="MedicineItemList"
       className="text-center bg-slate-200 p-5 border border-slate-950 cursor-pointer hover:bg-slate-300 transition ease-in-out"
       onClick={() => onClick(medicine.id)}
     >

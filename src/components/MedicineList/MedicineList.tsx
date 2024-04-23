@@ -113,7 +113,7 @@ const MedicineList: React.FC<MedicineListProps> = ({
   return (
     <div className="h-min-screen">
       {loading ? (
-        <p>Carregando...</p>
+        <p id="LoadingParagraph">Carregando...</p>
       ) : displayData.length > 0 ? (
         <ul>
           {displayData.map((medicine) => (

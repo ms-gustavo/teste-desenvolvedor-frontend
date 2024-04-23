@@ -12,7 +12,11 @@ const MedicineModal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-4 rounded-lg max-w-lg w-[90%]">
-        <button onClick={onClose} className="float-right font-bold">
+        <button
+          id="CloseModalButton"
+          onClick={onClose}
+          className="float-right font-bold"
+        >
           X
         </button>
         {children}

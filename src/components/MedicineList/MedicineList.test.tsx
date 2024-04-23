@@ -120,6 +120,6 @@ describe("MedicineList Component", () => {
     render(<MedicineList searchTerm="" searchType="name" />);
     await waitFor(() => fireEvent.click(screen.getByText("Medicine A")));
     fireEvent.click(screen.getByText("X"));
-    expect(screen.queryByText("Carregando...")).not.toBeInTheDocument();
+    expect(screen.queryByText("Paciente")).not.toBeInTheDocument();
   });
 });

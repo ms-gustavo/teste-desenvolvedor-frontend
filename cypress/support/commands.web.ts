@@ -35,23 +35,3 @@
 //     }
 //   }
 // }
-Cypress.Commands.add("visitSite", () => {
-  cy.visit(`http://localhost:5173/`);
-  cy.get('input[placeholder="Procurar por remédio"]');
-});
-
-Cypress.Commands.add("medicineByName", () => {
-  cy.visit(`http://localhost:5173/`);
-  cy.get('input[placeholder="Procurar por remédio"]');
-  cy.get("select").select("name");
-  cy.get('input[placeholder="Procurar por remédio"]').type("ALPRAZOLAM");
-  cy.get(".h-min-screen").contains("ALPRAZOLAM");
-});
-
-Cypress.Commands.add("medicineByCompany", () => {
-  cy.visit(`http://localhost:5173/`);
-  cy.get('input[placeholder="Procurar por remédio"]');
-  cy.get("select").select("company");
-  cy.get('input[placeholder="Procurar por empresa"]').type("EMS S/A");
-  cy.get(".h-min-screen").contains("EMS S/A");
-});

@@ -21,6 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <div className="flex space-x-2">
         {pageNumbers.map((number) => (
           <button
+            id="PaginationButton"
             key={number}
             onClick={() => setPage(number)}
             disabled={currentPage === number}

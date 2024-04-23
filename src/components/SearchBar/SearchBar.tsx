@@ -20,6 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <input
           type="text"
           value={value}
+          id="SearchBarInput"
           onChange={(e) => onChange(e.target.value)}
           placeholder={`Procurar por ${
             searchType === "name" ? "remédio" : "empresa"
@@ -29,6 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
       </div>
       <select
+        id="TypeSearchSelect"
         value={searchType}
         onChange={(e) => onTypeChange(e.target.value as "name" | "company")}
         className="rounded border border-gray-300 bg-white py-2 px-3 text-gray-700"
