@@ -19,7 +19,7 @@ const DocumentItem: React.FC<DocumentItemProps> = ({
   translateDocType,
 }) => {
   return (
-    <li className="mb-2">
+    <li id="MedicineModalContentDigitalLeafletItems" className="mb-2">
       <a
         href={document.url}
         target="_blank"

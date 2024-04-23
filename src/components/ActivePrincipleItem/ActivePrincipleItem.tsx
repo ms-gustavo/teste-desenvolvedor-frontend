@@ -12,7 +12,11 @@ interface ActivePrincipleItemProps {
 const ActivePrincipleItem: React.FC<ActivePrincipleItemProps> = ({
   activePrinciple,
 }) => {
-  return <li className="font-bold">{activePrinciple.name}</li>;
+  return (
+    <li id="MedicineModalContentPrincipleActiveItems" className="font-bold">
+      {activePrinciple.name}
+    </li>
+  );
 };
 
 export default ActivePrincipleItem;

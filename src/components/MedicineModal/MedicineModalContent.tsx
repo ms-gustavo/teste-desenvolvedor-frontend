@@ -21,16 +21,13 @@ const MedicineModalContent: React.FC<MedicineModalContentProps> = ({
         Empresa: {medicine.company}
       </p>
       <h4 id="MedicineModalContentPrincipleActive">Ativo principal:</h4>
-      <ul id="MedicineModalContentPrincipleActiveItems" className="border-b-2">
+      <ul className="border-b-2">
         {medicine.active_principles.map((ap) => (
           <ActivePrincipleItem key={ap.id} activePrinciple={ap} />
         ))}
       </ul>
       <h4 id="MedicineModalContentDigitalLeaflet">Bula digital:</h4>
-      <ul
-        id="MedicineModalContentDigitalLeafletItems"
-        className="list-none p-0 border-b-2"
-      >
+      <ul className="list-none p-0 border-b-2">
         {medicine.documents.map((doc) => (
           <DocumentItem
             key={doc.id}
