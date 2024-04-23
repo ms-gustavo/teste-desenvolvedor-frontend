@@ -144,7 +144,10 @@ const MedicineList: React.FC<MedicineListProps> = ({
           )}
         </ul>
       ) : (
-        <p className="text-center bg-slate-200 p-5 border border-slate-950">
+        <p
+          id="NoResultsFound"
+          className="text-center bg-slate-200 p-5 border border-slate-950"
+        >
           Não há resultados para sua pesquisa.
         </p>
       )}
